@@ -1,0 +1,56 @@
+:host {
+  display: block;
+}
+
+/* Each section component gets host class .page-section automatically */
+:host ::ng-deep .page-section {
+  display: block;
+  /* Compensate for sticky header height when scrolling to anchors */
+  scroll-margin-top: 5.5rem;
+  position: relative;
+}
+
+/* Soft alternating backgrounds so sections feel distinct without each
+   needing its own full-bleed hero. */
+:host ::ng-deep #ueber-uns {
+  background: var(--color-bg);
+}
+
+:host ::ng-deep #leistungen {
+  background: linear-gradient(180deg, var(--color-bg-soft) 0%, var(--color-bg) 100%);
+}
+
+:host ::ng-deep #aktuelles {
+  background: var(--color-bg);
+}
+
+:host ::ng-deep #kontakt {
+  background: var(--color-bg-soft);
+}
+
+/* Subtle hairline divider between adjacent sections — prevents the page
+   from looking like one giant slab of content. */
+:host ::ng-deep .page-section + .page-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(80%, 720px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-line),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* On smaller screens we don't need quite as much scroll-margin since the
+   header collapses to a thinner bar. */
+@media (max-width: 720px) {
+  :host ::ng-deep .page-section {
+    scroll-margin-top: 4.5rem;
+  }
+}

@@ -1,0 +1,180 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Kontakt &amp; Anfahrt</span>
+    <h2 class="h-display">
+      Wir sind für Sie da —<br /><em>persönlich oder online.</em>
+    </h2>
+    <p class="lead">
+      Rufen Sie uns an, schreiben Sie uns oder buchen Sie direkt einen
+      Termin online. Wir melden uns zeitnah zurück.
+    </p>
+  </div>
+</section>
+
+<section class="section contact-grid-section">
+  <div class="container contact-grid">
+    <!-- ========== Linke Spalte: Daten ========== -->
+    <div class="contact-info">
+      <article class="info-card">
+        <h3>Praxis</h3>
+        <address>
+          Rajab Dental Care<br />
+          Praxis Abdullah Rajab<br />
+          K4 20<br />
+          68159 Mannheim
+        </address>
+      </article>
+
+      <article class="info-card">
+        <h3>Direkt erreichen</h3>
+        <ul class="contact-list">
+          <li>
+            <span class="lbl">Telefon</span>
+            <a href="tel:+4962122160">0621&nbsp;22160</a>
+          </li>
+          <li>
+            <span class="lbl">E-Mail</span>
+            <a href="mailto:info@rajabdentalcare.de">info&#64;rajabdentalcare.de</a>
+          </li>
+          <li>
+            <span class="lbl">Online-Termin</span>
+            <a [href]="doctolibUrl" target="_blank" rel="noopener noreferrer">
+              Doctolib öffnen ↗
+            </a>
+          </li>
+        </ul>
+      </article>
+
+      <article class="info-card hours-card">
+        <h3>Öffnungszeiten</h3>
+        <table class="hours">
+          <tbody>
+            <tr>
+              <th scope="row">Montag</th>
+              <td>09:00 – 13:00 · 14:00 – 18:00</td>
+            </tr>
+            <tr>
+              <th scope="row">Dienstag</th>
+              <td>09:00 – 13:00 · 14:00 – 18:00</td>
+            </tr>
+            <tr>
+              <th scope="row">Mittwoch</th>
+              <td>09:00 – 13:00 · 14:00 – 18:00</td>
+            </tr>
+            <tr>
+              <th scope="row">Donnerstag</th>
+              <td>09:00 – 13:00 · 14:00 – 18:00</td>
+            </tr>
+            <tr>
+              <th scope="row">Freitag</th>
+              <td>09:00 – 14:00</td>
+            </tr>
+            <tr>
+              <th scope="row">Sa &amp; So</th>
+              <td>geschlossen</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="hours-note">
+          Auch außerhalb der Öffnungszeiten können Sie online über
+          Doctolib einen Termin vereinbaren.
+        </p>
+      </article>
+    </div>
+
+    <!-- ========== Rechte Spalte: Karte + Formular ========== -->
+    <div class="contact-side">
+      <div class="map-wrapper">
+        <iframe [src]="mapUrl" title="Karte: Praxis Rajab Dental Care, K4 20, 68159 Mannheim" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-pin">
+          <div class="pin">
+            <span class="pin-dot"></span>
+          </div>
+          <span>K4 20 · Mannheim</span>
+        </div>
+        <a href="https://www.openstreetmap.org/#map=19/49.493190/8.466776" target="_blank" rel="noopener noreferrer"
+          class="map-link">
+          Größere Karte öffnen ↗
+        </a>
+      </div>
+
+      <article class="form-card">
+        <h3>Schreiben Sie uns</h3>
+        <p class="form-intro">
+          Allgemeine Anfragen beantworten wir gern per E-Mail. Bitte
+          übermitteln Sie keine sensiblen Gesundheitsdaten über das
+          Kontaktformular.
+        </p>
+
+        @if (submitted()) {
+        <div class="form-success" role="status">
+          <strong>Danke für Ihre Nachricht.</strong>
+          <p>Wir melden uns zeitnah bei Ihnen zurück.</p>
+        </div>
+        } @else {
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <div class="field" [class.field--error]="hasError('name')">
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="name" autocomplete="name" placeholder="Ihr Name" />
+            @if (hasError('name')) {
+            <span class="field-error">Bitte geben Sie Ihren Namen an.</span>
+            }
+          </div>
+
+          <div class="field" [class.field--error]="hasError('email')">
+            <label for="email">E-Mail</label>
+            <input id="email" type="email" formControlName="email" autocomplete="email" placeholder="ihre@adresse.de" />
+            @if (hasError('email')) {
+            <span class="field-error">Bitte geben Sie eine gültige E-Mail-Adresse an.</span>
+            }
+          </div>
+
+          <div class="field" [class.field--error]="hasError('message')">
+            <label for="message">Nachricht</label>
+            <textarea id="message" formControlName="message" placeholder="Ihre Nachricht an uns…"></textarea>
+            @if (hasError('message')) {
+            <span class="field-error">Bitte schreiben Sie uns kurz, worum es geht (mind. 10 Zeichen).</span>
+            }
+          </div>
+
+          <label class="checkbox" [class.field--error]="hasError('privacy')">
+            <input type="checkbox" formControlName="privacy" />
+            <span>
+              Ich habe die <a routerLink="/datenschutz" target="_blank">Datenschutzhinweise</a>
+              gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung
+              meiner Anfrage zu. Eine Weitergabe an Dritte erfolgt nicht. Die
+              Einwilligung kann jederzeit widerrufen werden.
+            </span>
+          </label>
+          @if (hasError('privacy')) {
+          <span class="field-error" style="display:block; margin-top:-0.6rem; margin-bottom:1rem;">
+            Bitte stimmen Sie den Datenschutzhinweisen zu.
+          </span>
+          }
+
+          <button type="submit" class="btn btn--primary">
+            Nachricht senden <span class="arrow" aria-hidden="true">→</span>
+          </button>
+        </form>
+        }
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-final">
+  <div class="container">
+    <div class="cta-final-card">
+      <div>
+        <span class="eyebrow" style="color: var(--color-mint)">Schneller geht’s online</span>
+        <h3 class="h-section" style="color: #fff; margin-top: 0.6rem">
+          Termin in <em>2 Minuten</em> gebucht.
+        </h3>
+      </div>
+      <a [href]="doctolibUrl" target="_blank" rel="noopener noreferrer" class="btn btn--accent">
+        Zur Online-Buchung <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>

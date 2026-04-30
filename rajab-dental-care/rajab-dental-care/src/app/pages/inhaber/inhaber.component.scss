@@ -1,0 +1,178 @@
+:host {
+  display: block;
+}
+
+/* ============== PAGE HERO ============== */
+.page-hero {
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+  background:
+    linear-gradient(180deg, var(--color-bg-soft) 0%, var(--color-bg) 100%);
+}
+
+.page-hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: end;
+}
+
+.page-hero-text .eyebrow {
+  margin-bottom: 1.4rem;
+}
+
+.page-hero-side {
+  position: relative;
+}
+
+.quote-card {
+  position: relative;
+  padding: 2.5rem 2rem 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.quote-mark {
+  position: absolute;
+  top: 0.4rem;
+  left: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.quote-card p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--color-ink);
+  margin-bottom: 1rem;
+}
+
+.quote-card footer {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ============== PERSON ============== */
+.person-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.person-visual {
+  position: sticky;
+  top: 100px;
+}
+
+.portrait-frame {
+  position: relative;
+  margin: 0;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--color-line);
+  box-shadow: var(--shadow-md);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.badge {
+  padding: 0.45em 0.95em;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-deep);
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.person-content .eyebrow {
+  margin-bottom: 1rem;
+}
+
+.role {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+}
+
+.person-content p {
+  font-size: 1.02rem;
+  color: var(--color-ink-soft);
+  line-height: 1.75;
+  margin-bottom: 1.4rem;
+}
+
+.milestone-list {
+  margin-top: 2rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.milestone-list li {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--color-line);
+  align-items: baseline;
+}
+
+.milestone-year {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+}
+
+.milestone-label {
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+  line-height: 1.5;
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 960px) {
+  .page-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .person-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .person-visual {
+    position: static;
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 540px) {
+  .milestone-list li {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+}

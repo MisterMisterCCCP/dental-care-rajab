@@ -1,0 +1,104 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Leistungen</span>
+    <h2 class="h-display">
+      Das gesamte Spektrum<br /><em>moderner Zahnheilkunde.</em>
+    </h2>
+    <p class="lead">
+      Von der Vorsorge bis zur Implantologie — wir bieten alle wichtigen
+      Leistungen rund um Ihre Zahngesundheit unter einem Dach. Hier ein
+      Überblick. Wir beraten Sie gerne persönlich, was zu Ihrer Situation
+      passt.
+    </p>
+
+    <nav class="service-anchors" aria-label="Schnellsprung zu Leistungen">
+      @for (s of services; track s.id) {
+        <a [href]="'#' + s.id">{{ s.title }}</a>
+      }
+    </nav>
+  </div>
+</section>
+
+<section class="section services-list">
+  <div class="container">
+    @for (s of services; track s.id; let i = $index) {
+      <article class="service-detail" [id]="s.id"
+               [class.is-flipped]="i % 2 === 1">
+        <div class="service-visual">
+          <div class="service-icon-large" aria-hidden="true">
+            @switch (s.icon) {
+              @case ('implant') {
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M32 8v16"/>
+                  <rect x="24" y="24" width="16" height="12" rx="2"/>
+                  <path d="M28 36l-4 20M36 36l4 20"/>
+                  <path d="M20 56h24"/>
+                </svg>
+              }
+              @case ('sparkle') {
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M32 8l4 16 16 4-16 4-4 16-4-16-16-4 16-4z"/>
+                  <path d="M52 44l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/>
+                </svg>
+              }
+              @case ('shield') {
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M32 8l20 8v16c0 14-8 22-20 26-12-4-20-12-20-26V16z"/>
+                  <path d="M24 32l6 6 12-12"/>
+                </svg>
+              }
+              @case ('heart') {
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M32 54s-18-11-18-25C14 21 19.6 16 26 16c4 0 6 2 6 5 0-3 2-5 6-5 6.4 0 12 5 12 13 0 14-18 25-18 25z"/>
+                </svg>
+              }
+              @case ('tooth') {
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M32 8c-7 0-11 4-15 4s-7-3-10 0c-3 4-4 9-4 14 0 12 4 26 10 36 4 7 8 10 12 7 3-2 4-6 6-9 2-3 4-4 6-4s4 1 6 4c2 3 3 7 6 9 4 3 8 0 12-7 6-10 10-24 10-36 0-5-1-10-4-14-3-3-6 0-10 0s-8-4-15-4z"/>
+                </svg>
+              }
+            }
+          </div>
+          <div class="service-meta">
+            <span class="service-num">0{{ i + 1 < 10 ? i + 1 : i + 1 }}</span>
+            <span class="service-label">{{ s.short }}</span>
+          </div>
+        </div>
+
+        <div class="service-content">
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.description }}</p>
+          <ul class="highlights">
+            @for (h of s.highlights; track h) {
+              <li>{{ h }}</li>
+            }
+          </ul>
+          <a [href]="doctolibUrl" target="_blank" rel="noopener noreferrer"
+             class="service-cta">
+            Termin für {{ s.title }} buchen
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section disclaimer-section">
+  <div class="container">
+    <div class="disclaimer-card">
+      <h4>Eine ehrliche Anmerkung.</h4>
+      <p>
+        Welche Leistungen sinnvoll sind, lässt sich erst nach einer
+        gründlichen Untersuchung sagen. Wir empfehlen ausschließlich,
+        was medizinisch begründet ist — und besprechen jede Behandlung
+        offen mit Ihnen, einschließlich Kosten und möglicher
+        Alternativen. Privatleistungen werden vorab schriftlich erläutert.
+      </p>
+      <a [routerLink]="['/']" fragment="kontakt" class="btn btn--primary">
+        Beratungstermin vereinbaren
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>

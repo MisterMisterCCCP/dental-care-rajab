@@ -1,0 +1,74 @@
+<section class="page-hero">
+  <div class="container page-hero-grid">
+    <div class="page-hero-text">
+      <span class="eyebrow">Der Inhaber</span>
+      <h2 class="h-display">
+        Ich bin Ihr Mann für <br /><em>vertrauensvolle Zahnheilkunde.</em>
+      </h2>
+      <p class="lead">
+        Rajab Dental Care steht für moderne und individuelle Zahnmedizin
+        im Herzen von Mannheim. Unter der Leitung von mir (Abdullah Rajab)
+        bieten wir Ihnen eine umfassende Betreuung rund um Ihre Mundgesundheit, von 
+        der ersten Beratung bis zur langfristigen Begleitung.
+      </p>
+    </div>
+    <div class="page-hero-side">
+      <div class="quote-card">
+        <span class="quote-mark" aria-hidden="true">"</span>
+        <p>
+          Eine gute Zahnmedizin beginnt mit Zuhören. Wir nehmen uns die
+          Zeit, die unsere Patientinnen und Patienten verdienen.
+        </p>
+        <footer>— Abdullah Rajab, Zahnarzt</footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section person-section">
+  <div class="container person-grid">
+    <div class="person-visual">
+      <figure class="portrait-frame">
+        <img class="portrait"
+             src="assets/images/Rajab.jpg"
+             alt="Porträt von Zahnarzt Abdullah Rajab" />
+      </figure>
+      <div class="badges">
+        <span class="badge">DGI</span>
+        <span class="badge">DGZMK</span>
+        <span class="badge">LZK BW</span>
+      </div>
+    </div>
+
+    <div class="person-content">
+      <span class="eyebrow">Praxisinhaber</span>
+      <h3 class="h-section">Abdullah Rajab</h3>
+      <p class="role">Doctor of Dental Surgery (DDS) · Zahnarzt in Mannheim</p>
+
+      <p>
+        Mein beruflicher Weg führte mich aus Syrien — wo ich an der
+        Syrian Private University meinen Doctor of Dental Surgery
+        abschloss — nach Deutschland und schließlich nach Mannheim.
+        Heute betreibe ich die Praxis Rajab Dental Care im Quadrat K4,
+        nur wenige Schritte vom Mannheimer Schloss entfernt.
+      </p>
+      <p>
+        Mein Anspruch: zeitgemäße Zahnheilkunde mit menschlicher Nähe.
+        Ich bin Mitglied der Deutschen Gesellschaft für Implantologie
+        (DGI) sowie der Deutschen Gesellschaft für Zahn-, Mund- und
+        Kieferheilkunde (DGZMK) und bilde mich kontinuierlich weiter,
+        um meinen Patientinnen und Patienten Behandlungen auf
+        aktuellem Niveau anbieten zu können.
+      </p>
+
+      <ul class="milestone-list">
+        @for (m of milestones; track m.year) {
+          <li>
+            <span class="milestone-year">{{ m.year }}</span>
+            <span class="milestone-label">{{ m.label }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

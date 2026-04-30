@@ -1,0 +1,91 @@
+<!-- ============== HERO ============== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow fade-up" style="animation-delay: 100ms">
+        Zahnarztpraxis · Mannheim · K4
+      </span>
+
+      <h1 id="hero-title" class="h-display fade-up" style="animation-delay: 220ms">
+        Ihr Lächeln,<br />
+        unsere <em>Leidenschaft.</em>
+      </h1>
+
+      <p class="lead fade-up" style="animation-delay: 380ms">
+        Willkommen bei Rajab Dental Care. Moderne Zahnheilkunde im Herzen
+        von Mannheim — vom ersten Termin an persönlich, in Deutsch und
+        Arabisch.
+      </p>
+
+      <div class="hero-actions fade-up" style="animation-delay: 520ms">
+        <a [href]="doctolibUrl" target="_blank" rel="noopener noreferrer"
+           class="btn btn--accent">
+          Termin online buchen <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a [routerLink]="['/']" fragment="leistungen" class="btn btn--ghost">
+          Leistungen entdecken
+        </a>
+      </div>
+
+      <ul class="trust fade-up" style="animation-delay: 680ms">
+        @for (t of trustPoints; track t.label) {
+          <li>
+            <span class="trust-num">{{ t.number }}</span>
+            <span class="trust-lbl">{{ t.label }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="hero-visual fade-in" style="animation-delay: 400ms">
+      <figure class="hero-figure">
+        <svg viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg"
+             role="img" aria-label="Stilisierte Illustration einer modernen Zahnarztpraxis: warme Farben, sanfte Formen, ein freundliches Behandlungszimmer.">
+          <defs>
+            <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0E4D5C"/>
+              <stop offset="100%" stop-color="#0A3C48"/>
+            </linearGradient>
+            <linearGradient id="lightGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F5EDE2" stop-opacity="0.95"/>
+              <stop offset="100%" stop-color="#F5EDE2" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="480" height="600" rx="24" fill="url(#bgGrad)"/>
+          <rect x="0" y="0" width="480" height="380" fill="url(#lightGrad)" opacity="0.4"/>
+          <path d="M240 130c-48 0-72 24-100 24s-32-18-50 0c-18 18-22 50-22 80 0 60 22 130 50 180 22 38 40 50 60 36 14-10 22-30 32-46 10-16 22-22 30-22s20 6 30 22c10 16 18 36 32 46 20 14 38 2 60-36 28-50 50-120 50-180 0-30-4-62-22-80-18-18-22 0-50 0s-52-24-100-24z"
+                fill="#F5EDE2" opacity="0.96"/>
+          <rect x="60" y="500" width="360" height="56" rx="28" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)"/>
+          <text x="240" y="535" text-anchor="middle"
+                font-family="Fraunces, serif" font-size="22" font-style="italic"
+                fill="#F5EDE2">since 2013 · Rajab Dental Care</text>
+          <circle cx="380" cy="80" r="14" fill="#D96F4A"/>
+        </svg>
+
+        <figcaption class="figcaption">
+          <span class="caption-tag">Praxis im Quadrat K4</span>
+          Mit Blick auf die Mannheimer Innenstadt.
+        </figcaption>
+      </figure>
+
+      <div class="hero-card">
+        <div class="hero-card-row">
+          <span class="dot" aria-hidden="true"></span>
+          <strong>Heute geöffnet</strong>
+        </div>
+        <p>Mo – Do · 09:00 – 13:00 &amp; 14:00 – 18:00<br />Fr · 09:00 – 14:00</p>
+        <a [routerLink]="['/']" fragment="kontakt">Anfahrt &amp; Kontakt →</a>
+      </div>
+    </div>
+  </div>
+
+  <a class="scroll-cue" [routerLink]="['/']" fragment="ueber-uns" aria-label="Zur Praxisvorstellung scrollen">
+    <span class="scroll-cue__line" aria-hidden="true"></span>
+    <span class="scroll-cue__lbl">Mehr entdecken</span>
+  </a>
+</section>

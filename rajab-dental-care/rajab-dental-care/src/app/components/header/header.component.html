@@ -1,0 +1,55 @@
+<header class="site-header" [class.is-scrolled]="scrolled()">
+  <div class="container header-inner">
+    <a [routerLink]="['/']" fragment="start" class="logo" (click)="closeMenu()" aria-label="Rajab Dental Care – Startseite">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 3c-3.6 0-5.4 1.6-7.4 1.6S5.6 3.4 4 4.6c-1.4 1-2 3-2 5.6 0 3.6.8 7.4 2.4 11.2 1.4 3.4 3.2 6.6 5.2 6.6 1.4 0 2-1.4 3.2-3.2.8-1.2 1.6-2 3.2-2s2.4.8 3.2 2c1.2 1.8 1.8 3.2 3.2 3.2 2 0 3.8-3.2 5.2-6.6C29.2 17.6 30 13.8 30 10.2c0-2.6-.6-4.6-2-5.6-1.6-1.2-2.6 0-4.6 0S19.6 3 16 3z"
+                fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="logo-text">
+        <span class="logo-title">Rajab</span>
+        <span class="logo-sub">Dental Care</span>
+      </span>
+    </a>
+
+    <nav class="primary-nav" [class.is-open]="menuOpen()" aria-label="Hauptnavigation">
+      <ul>
+        @for (item of navItems; track item.fragment) {
+          <li>
+            <a
+              [routerLink]="['/']"
+              [fragment]="item.fragment"
+              [class.is-active]="isActive(item.fragment)"
+              (click)="closeMenu()"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        }
+      </ul>
+
+      <div class="nav-cta">
+        <a [href]="doctolibUrl" target="_blank" rel="noopener noreferrer" class="btn btn--accent">
+          Termin buchen <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </nav>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      [attr.aria-expanded]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? 'Menü schließen' : 'Menü öffnen'"
+      (click)="toggleMenu()"
+    >
+      <span class="bar" [class.x1]="menuOpen()"></span>
+      <span class="bar" [class.x2]="menuOpen()"></span>
+      <span class="bar" [class.x3]="menuOpen()"></span>
+    </button>
+  </div>
+</header>
+
+@if (menuOpen()) {
+  <div class="menu-backdrop" (click)="closeMenu()" aria-hidden="true"></div>
+}
